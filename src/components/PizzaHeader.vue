@@ -68,11 +68,14 @@ header {
 
   .pizza {
     &__logo {
-      height: 1.7em;
-      img {
-        width: 100%;
-        height: 100%;
-        vertical-align: middle;
+      & > a {
+        display: block;
+        width: 9.5em;
+        img {
+          width: 100%;
+          height: 100%;
+          vertical-align: middle;
+        }
       }
     }
 
@@ -81,7 +84,6 @@ header {
       background: none;
       border: none;
       cursor: pointer;
-      padding: 0.5rem;
       z-index: 100;
 
       @include responsive(mobile) {
@@ -100,7 +102,7 @@ header {
 
       &.is-active {
         position: fixed;
-        right: 10px;
+        right: 20px;
 
         span {
           &:first-child {
@@ -191,7 +193,11 @@ header {
         &:hover {
           color: $primary-color;
         }
+        @include responsive(mobile) {
+          font-size: 1rem;
+        }
       }
+
       &-register {
         background: $primary-color;
         color: #fff;
@@ -207,6 +213,7 @@ header {
         }
 
         @include responsive(mobile) {
+          font-size: 1rem;
           background-color: $text-color;
           &:hover {
             background-color: $text-color;

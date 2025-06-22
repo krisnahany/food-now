@@ -22,9 +22,12 @@
     font-size: 4.5rem;
     color: $primary-color;
     font-weight: 700;
+  }
 
-    @include responsive(mobile) {
-      font-size: 2rem;
+  @include responsive(mobile) {
+    min-height: 100vh;
+    &-title {
+      font-size: 2.5rem;
     }
   }
 }

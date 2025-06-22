@@ -39,11 +39,6 @@
 
       <div class="footer-section">
         <h4 class="footer-section__title">Contact</h4>
-        <!-- <div class="footer-contact">
-          <p class="footer-contact__item">Food.now@mail.com</p>
-          <p class="footer-contact__item">+62848477102943</p>
-          <p class="footer-contact__item">+62818493849494</p>
-        </div> -->
         <ul class="footer-contact">
           <li class="footer-contact__item">
             <a href="mailto:Food.now@mail.com" class="footer-contact__link">
@@ -164,6 +159,13 @@ import location from "/assets/img/icons/location.svg";
         color: $primary-color;
       }
     }
+
+    @include responsive(mobile) {
+      &__list {
+        grid-template-columns: auto;
+        grid-template-rows: repeat(2, 1fr);
+      }
+    }
   }
 
   &-brand {
@@ -177,15 +179,6 @@ import location from "/assets/img/icons/location.svg";
         height: 2rem;
         width: auto;
         max-width: 100%;
-      }
-    }
-
-    @include responsive(mobile) {
-      &__title {
-        text-align: center;
-        & > img {
-          height: 2rem;
-        }
       }
     }
 
@@ -222,6 +215,20 @@ import location from "/assets/img/icons/location.svg";
       &:hover {
         background: $secondary-color;
         border-color: $primary-color;
+      }
+    }
+
+    @include responsive(mobile) {
+      &__title {
+        text-align: center;
+        & > img {
+          height: 2rem;
+        }
+      }
+
+      &__subtitle {
+        font-size: 1.125rem;
+        font-weight: 600;
       }
     }
   }

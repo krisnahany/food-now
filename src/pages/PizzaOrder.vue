@@ -156,7 +156,7 @@ onMounted(fetchData);
 
     @include responsive(mobile) {
       grid-template-columns: 1fr;
-      gap: 20px;
+      gap: 60px;
     }
   }
 }
