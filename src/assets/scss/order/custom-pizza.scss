@@ -1,0 +1,142 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.custom-pizza {
+  &__title {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 700;
+    color: $primary-color;
+    margin-bottom: clamp(20px, 4vh, 30px);
+  }
+
+  // Size Selection
+  .size-selection {
+    margin-bottom: 30px;
+
+    &__title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: $text-color;
+    }
+
+    &__options {
+      display: flex;
+      gap: 20px;
+    }
+  }
+
+  .size-option {
+    display: flex;
+    align-items: center;
+
+    &__radio {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      border: 1px solid $border-color;
+      border-radius: 50%;
+      outline: none;
+      margin-right: 5px;
+      position: relative;
+
+      &:checked {
+        border-color: $primary-color;
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background-color: $primary-color;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+
+    &__label {
+      cursor: pointer;
+      @include transition;
+      font-size: 0.875rem;
+    }
+
+    &__price {
+      color: $text-light;
+    }
+  }
+
+  // Toppings Selection
+  .toppings-selection {
+    padding-right: 60px;
+
+    @include responsive(tablet) {
+      padding-right: 0;
+    }
+    @include responsive(mobile) {
+      padding-right: 0;
+    }
+
+    &__title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: $text-color;
+    }
+
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 15px;
+
+      @include responsive(mobile) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+
+  .topping-option {
+    &--disabled {
+      pointer-events: none;
+      & > .topping-option__label {
+        border: none;
+      }
+    }
+
+    &__checkbox {
+      display: none;
+
+      &:checked + .topping-option__label {
+        background-color: $secondary-color;
+        color: $primary-color;
+        border-color: $primary-color;
+      }
+
+      &:disabled + .topping-option__label {
+        background: $disabled-color;
+        color: $disabled-text;
+        cursor: not-allowed;
+      }
+    }
+
+    &__label {
+      display: block;
+      padding: 8px 15px;
+      border: 1px solid $border-color;
+      border-radius: 20px;
+      cursor: pointer;
+      text-align: center;
+      font-size: 0.875rem;
+      font-weight: 600;
+      @include transition;
+
+      &:hover:not([disabled]) {
+        border-color: $primary-color;
+        color: $primary-color;
+      }
+    }
+  }
+} 

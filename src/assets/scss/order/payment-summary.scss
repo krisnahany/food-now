@@ -1,0 +1,87 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.payment-summary {
+  background: $white;
+  border-radius: 12px;
+  padding: 20px;
+  @include card-shadow;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+
+  &__title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: $primary-color;
+    margin-bottom: 15px;
+  }
+
+  &__content {
+    margin-bottom: 15px;
+  }
+
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0 0;
+    border-top: 1px solid $border-color-light;
+    margin-bottom: 15px;
+
+    &-label {
+      font-size: 1.125rem;
+    }
+
+    &-price {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: $primary-color;
+    }
+  }
+
+  &__order-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: $primary-color;
+    color: $white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    @include transition;
+
+    &:hover:not(:disabled) {
+      background-color: $dark-orange;
+    }
+
+    &:disabled {
+      background: $disabled-color;
+      cursor: not-allowed;
+      transform: none;
+    }
+  }
+}
+
+.payment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 8px;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &__name {
+    color: #616f79;
+    font-weight: 300;
+    font-size: 0.875rem;
+  }
+
+  &__price {
+    color: $text-color;
+    font-size: 0.875rem;
+  }
+} 
